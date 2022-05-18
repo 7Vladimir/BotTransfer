@@ -35,9 +35,8 @@ namespace BotTransfer.Connection
             return answer;
         }
         public static bool respBit(int chatId)
-        {
-            string connectionString = "Data Source=10.55.31.55;Initial Catalog=Myst;Persist Security Info=True;User ID=rom;Password=*New_123#";
-            SqlConnection con = new SqlConnection(connectionString);
+        {       
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["TestBot"].ConnectionString);
             con.Open();
             bool answer = false;
             string querySelect = $"SELECT ChatId FROM TestBot WHERE ChatId = {chatId}";

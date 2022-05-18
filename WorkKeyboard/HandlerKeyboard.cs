@@ -21,7 +21,7 @@ namespace BotTransfer.WorkKeyboard
                 InlineKeyboardMarkup inKeyboard = new InlineKeyboardMarkup(new[]
                 {
                InlineKeyboardButton.WithCallbackData("Да" , $"Введите сумму перевода"),
-               InlineKeyboardButton.WithCallbackData("Нет" , "Ок"),
+               InlineKeyboardButton.WithCallbackData("Нет" , "Ваш перевод отменен"),
                });
                 await botClient.SendTextMessageAsync(message.Chat, "Вы уверены?", replyMarkup: inKeyboard);
             }

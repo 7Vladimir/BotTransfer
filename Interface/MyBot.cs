@@ -21,7 +21,7 @@ namespace BotTransfer.Interface
 
         public void Start()
         {
-            Console.WriteLine("Бот запущен" + bot.GetMeAsync().Result.FirstName);
+            Console.WriteLine("Бот запущен " + bot.GetMeAsync().Result.FirstName);
             var cts = new CancellationTokenSource();
             var cancellationtoken = cts.Token;
             var receiverOptions = new ReceiverOptions()

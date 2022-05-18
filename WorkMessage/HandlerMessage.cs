@@ -44,8 +44,7 @@ namespace BotTransfer.WorkMessage
             }
             if (flag == true)
             {
-                string connectionString = "Data Source=10.55.31.55;Initial Catalog=Myst;Persist Security Info=True;User ID=rom;Password=*New_123#";
-                SqlConnection con = new SqlConnection(connectionString);
+                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["TestBot"].ConnectionString);
                 con.Open();
 
                 string queryUpdate = $"UPDATE TestBot SET Summa={value} WHERE ChatId={Convert.ToInt32(message.Chat.Id)}";

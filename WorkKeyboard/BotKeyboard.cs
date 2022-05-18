@@ -22,8 +22,7 @@ namespace BotTransfer.WorkKeyboard
             {
                 await botClient.SendTextMessageAsync(callbackQuery.From.Id, callbackQuery.Data.ToString());
 
-                string connectionString = "Data Source=10.55.31.55;Initial Catalog=Myst;Persist Security Info=True;User ID=rom;Password=*New_123#";
-                SqlConnection con = new SqlConnection(connectionString);
+                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["TestBot"].ConnectionString);
 
                 bool answer = false;
                 answer = SingletonDB.respBit(Convert.ToInt32(callbackQuery.From.Id));
