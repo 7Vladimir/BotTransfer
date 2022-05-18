@@ -22,6 +22,7 @@ namespace BotTransfer.Interface
         public void Start()
         {
             Console.WriteLine("Бот запущен " + bot.GetMeAsync().Result.FirstName);
+            var evt = new AutoResetEvent(false);
             var cts = new CancellationTokenSource();
             var cancellationtoken = cts.Token;
             var receiverOptions = new ReceiverOptions()
@@ -29,7 +30,8 @@ namespace BotTransfer.Interface
                 AllowedUpdates = { }
             };
             bot.StartReceiving(BotMain.MainMessage , BotException.respException , receiverOptions , cancellationtoken);
-            Console.ReadLine();
+            evt.WaitOne();
+
         }
     }
 }
