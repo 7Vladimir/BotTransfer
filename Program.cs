@@ -22,6 +22,7 @@ namespace TestBot
             {
                 MyBot bot = new MyBot();
                 bot.Start();
+                Console.ReadKey();
             }
             catch (Exception ex)
             {
