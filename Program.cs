@@ -31,7 +31,6 @@ namespace TestBot
 
                 var handle = GetConsoleWindow();
                 ShowWindow(handle, SW_HIDE);
-                Console.Read();
             }
             catch (Exception ex)
             {
