@@ -18,8 +18,16 @@ namespace TestBot
     {
         static void Main(string[] args)
         {
-            MyBot bot = new MyBot();
-            bot.Start();
+            try
+            {
+                MyBot bot = new MyBot();
+                bot.Start();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                throw new Exception(ex.ToString());
+            }
         }
     }
 }
