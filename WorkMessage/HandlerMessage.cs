@@ -10,7 +10,7 @@ using Telegram.Bot.Types;
 using Telegram.Bot.Types.ReplyMarkups;
 using System.Configuration;
 using System.Data.SqlClient;
-
+using BotTransfer.Adapters;
 namespace BotTransfer.WorkMessage
 {
     internal class HandlerMessage
@@ -44,10 +44,11 @@ namespace BotTransfer.WorkMessage
             }
             if (flag == true)
             {
-                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["TestBot"].ConnectionString);
+                API_GetReference.pull(value);
+                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["TestBotTg"].ConnectionString);
                 con.Open();
 
-                string queryUpdate = $"UPDATE TestBot SET Summa={value} WHERE ChatId={Convert.ToInt32(message.Chat.Id)}";
+                string queryUpdate = $"UPDATE TestBotTg SET Money={value} WHERE ChatID={Convert.ToInt32(message.Chat.Id)}";
                 SqlCommand cmd = new SqlCommand(queryUpdate, con);
                 cmd.ExecuteNonQuery();
                 con.Close();

@@ -36,10 +36,10 @@ namespace BotTransfer.Connection
         }
         public static bool respBit(int chatId)
         {       
-            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["TestBot"].ConnectionString);
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["TestBotTg"].ConnectionString);
             con.Open();
             bool answer = false;
-            string querySelect = $"SELECT ChatId FROM TestBot WHERE ChatId = {chatId}";
+            string querySelect = $"SELECT ChatID FROM TestBotTg WHERE ChatID = {chatId}";
             SqlCommand command = new SqlCommand(querySelect, con);
             SqlDataReader reader = command.ExecuteReader();
             string idfromBase = null;

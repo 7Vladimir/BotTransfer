@@ -11,6 +11,7 @@ using Telegram.Bot.Types.Enums;
 using BotTransfer.WorkMessage;
 using BotTransfer.Connection;
 using BotTransfer.WorkKeyboard;
+using BotTransfer.Adapters;
 namespace BotTransfer
 {
     internal class BotMain
@@ -24,7 +25,6 @@ namespace BotTransfer
                 var msg = update.Message;
                 string userTxt = msg.Text == null ? "" : msg.Text;
                 MessageType type = userTxt == "/start" ? MessageType.Text : msg.Type;
-
                 var callbackQuery = update.CallbackQuery;
 
                 switch (msg.Type)

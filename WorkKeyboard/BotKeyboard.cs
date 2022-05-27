@@ -22,7 +22,7 @@ namespace BotTransfer.WorkKeyboard
             {
                 await botClient.SendTextMessageAsync(callbackQuery.From.Id, callbackQuery.Data.ToString());
 
-                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["TestBot"].ConnectionString);
+                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["TestBotTg"].ConnectionString);
 
                 bool answer = false;
                 answer = SingletonDB.respBit(Convert.ToInt32(callbackQuery.From.Id));
@@ -31,7 +31,7 @@ namespace BotTransfer.WorkKeyboard
 
                 if (answer == false)
                 {
-                    string queryInsert = $"INSERT INTO TestBot(ChatId) VALUES({callbackQuery.From.Id})";
+                    string queryInsert = $"INSERT INTO TestBotTg(ChatID) VALUES({callbackQuery.From.Id})";
                     SqlCommand sqlCommand = new SqlCommand(queryInsert, con);
                     sqlCommand.ExecuteNonQuery();
                 }

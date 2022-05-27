@@ -12,6 +12,9 @@ using BotTransfer.Interface;
 using BotTransfer.Exceptions;
 using BotTransfer.WorkMessage;
 using BotTransfer.Connection;
+using System.Net;
+using System.Diagnostics;
+
 namespace TestBot
 {
     internal class Program
@@ -20,7 +23,10 @@ namespace TestBot
         {
             try
             {
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                 MyBot bot = new MyBot();
+                Console.WriteLine(ServicePointManager.SecurityProtocol.ToString());
+
                 bot.Start();
             }
             catch (Exception ex)
