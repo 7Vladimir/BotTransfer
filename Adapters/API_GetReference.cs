@@ -134,7 +134,6 @@ namespace BotTransfer.Adapters
 
             request.Headers.Add("Authorization", "Basic YzYzMDU0ZGMtOGVkYy00MDFlLWE2NDgtYjM3MmNjYzIwMDU3Ojc3OTNhMTU3LWVhY2ItNDZhOS04ZGJiLTYwODUwNjJhNWE5Ng==");
             request.Method = "POST";
-            request.ProtocolVersion = HttpVersion.Version20;
             request.ServerCertificateValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
             // Certificate with private key
             request.PreAuthenticate = true;
