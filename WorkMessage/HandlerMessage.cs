@@ -44,7 +44,7 @@ namespace BotTransfer.WorkMessage
             }
             if (flag == true)
             {
-                API_GetReference.pull(value);
+                string url = API_GetReference.pull(value);
                 SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["TestBotTg"].ConnectionString);
                 con.Open();
 
@@ -58,7 +58,7 @@ namespace BotTransfer.WorkMessage
                 {
                     InlineKeyboardMarkup inKeyboard = new InlineKeyboardMarkup(new[]
                     {
-                        InlineKeyboardButton.WithCallbackData("Получить ссылку" ,  $"https://www.youtube.com/{value}"),
+                        InlineKeyboardButton.WithCallbackData("Получить ссылку" ,  $"{url}"),
                     });
                     await botClient.SendTextMessageAsync(message.Chat, "...", replyMarkup: inKeyboard);
                 }

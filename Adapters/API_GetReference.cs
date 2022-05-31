@@ -71,7 +71,7 @@ namespace BotTransfer.Adapters
                 }
             
                Root root = JsonConvert.DeserializeObject<Root>(ContentResponse);
-                url = root.confirmation.confirmationUrl;
+               url = root.confirmation.confirmationUrl;
                Console.WriteLine($"Получили ссылку на оплату = {url}");
             }
             catch (Exception ex)
