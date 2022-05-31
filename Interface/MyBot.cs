@@ -31,7 +31,6 @@ namespace BotTransfer.Interface
             };
             bot.StartReceiving(BotMain.MainMessage , BotException.respException , receiverOptions , cancellationtoken);
             evt.WaitOne();
-
         }
     }
 }
