@@ -22,7 +22,7 @@ namespace BotTransfer.Adapters
     {
         public static string pull(int value)
         {
-            string url = "";
+            string url = " ";
             DateTime dateTime = DateTime.Now;
             string time = dateTime.ToString()
                 .Replace(".", "")

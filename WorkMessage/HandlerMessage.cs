@@ -60,7 +60,7 @@ namespace BotTransfer.WorkMessage
                     Console.WriteLine("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Значение больше 0");
                     InlineKeyboardMarkup inKeyboard = new InlineKeyboardMarkup(new[]
                     {
-                        InlineKeyboardButton.WithCallbackData("Получить ссылку" , callbackData : "Щляпа ебанная"),
+                        InlineKeyboardButton.WithCallbackData("Получить ссылку" , callbackData : url),
                     });
                     await botClient.SendTextMessageAsync(message.Chat, "...", replyMarkup: inKeyboard);
                 }
