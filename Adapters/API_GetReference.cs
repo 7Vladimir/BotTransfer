@@ -69,18 +69,17 @@ namespace BotTransfer.Adapters
                     StreamReader reader = new StreamReader(receiveStream, Encoding.UTF8);
                     ContentResponse = reader.ReadToEnd();
                 }
-            
+
                Root root = JsonConvert.DeserializeObject<Root>(ContentResponse);
                url = root.confirmation.confirmationUrl;
-               Console.WriteLine($"Получили ссылку на оплату = {url}");
+               Console.WriteLine($"Получили ссылку на оплату = {root.confirmation.confirmationUrl}");
             }
             catch (Exception ex)
             {
                 int r = 0;//
                 Console.WriteLine("ERORORORO:" + ex.ToString());
-                return "Получили ошибку" + ex.Message;
+                return "Не удалось сформировать ссылку";
             }
-
             return url;
         }
     }

@@ -58,7 +58,7 @@ namespace BotTransfer.WorkMessage
                 {
                     InlineKeyboardMarkup inKeyboard = new InlineKeyboardMarkup(new[]
                     {
-                        InlineKeyboardButton.WithCallbackData("Получить ссылку" ,  $"{url}"),
+                        InlineKeyboardButton.WithCallbackData("Получить ссылку" , callbackData : url),
                     });
                     await botClient.SendTextMessageAsync(message.Chat, "...", replyMarkup: inKeyboard);
                 }
