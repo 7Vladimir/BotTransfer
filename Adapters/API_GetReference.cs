@@ -78,6 +78,7 @@ namespace BotTransfer.Adapters
             {
                 int r = 0;//
                 Console.WriteLine("ERORORORO:" + ex.ToString());
+                Console.WriteLine("Текст ссылки --------------> "+url);
                 return "Не удалось сформировать ссылку";
             }
             return url;
