@@ -45,9 +45,10 @@ namespace BotTransfer.WorkMessage
             if (flag == true)
             {
                 string url = API_GetReference.pull(value);
+                Console.WriteLine("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Получили значение ссылки");
                 SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["TestBotTg"].ConnectionString);
                 con.Open();
-
+                Console.WriteLine("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Открыли коннекшн");
                 string queryUpdate = $"UPDATE TestBotTg SET Money={value} WHERE ChatID={Convert.ToInt32(message.Chat.Id)}";
                 SqlCommand cmd = new SqlCommand(queryUpdate, con);
                 cmd.ExecuteNonQuery();
@@ -56,9 +57,10 @@ namespace BotTransfer.WorkMessage
                 Console.WriteLine("Ввели число");
                 if (value > 0)
                 {
+                    Console.WriteLine("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Значение больше 0");
                     InlineKeyboardMarkup inKeyboard = new InlineKeyboardMarkup(new[]
                     {
-                        InlineKeyboardButton.WithCallbackData("Получить ссылку" , callbackData : url),
+                        InlineKeyboardButton.WithCallbackData("Получить ссылку" , callbackData : "Щляпа ебанная"),
                     });
                     await botClient.SendTextMessageAsync(message.Chat, "...", replyMarkup: inKeyboard);
                 }
