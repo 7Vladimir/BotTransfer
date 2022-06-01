@@ -58,10 +58,11 @@ namespace BotTransfer.WorkMessage
                 if (value > 0)
                 {
                     Console.WriteLine("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Значение больше 0");
+                    var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(url);
                     InlineKeyboardMarkup inKeyboard = new InlineKeyboardMarkup(new[]
                     {
-                        InlineKeyboardButton.WithCallbackData("Получить ссылку" , callbackData : url),
-                    });
+                        InlineKeyboardButton.WithUrl("Получить ссылку",url)
+                    }) ;
                     await botClient.SendTextMessageAsync(message.Chat, "...", replyMarkup: inKeyboard);
                 }
             }
