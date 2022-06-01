@@ -22,7 +22,7 @@ namespace BotTransfer.Adapters
     {
         public static string pull(int value)
         {
-            string url = " ";
+            string url = "http://404";
             DateTime dateTime = DateTime.Now;
             string time = dateTime.ToString()
                 .Replace(".", "")
@@ -79,7 +79,6 @@ namespace BotTransfer.Adapters
                 int r = 0;//
                 Console.WriteLine("ERORORORO:" + ex.ToString());
                 Console.WriteLine("Текст ссылки --------------> "+url);
-                return "Не удалось сформировать ссылку";
             }
             return url;
         }
